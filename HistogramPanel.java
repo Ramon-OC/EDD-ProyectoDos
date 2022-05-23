@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
 
+/**
+*
+* @author // Inserta tu nombre completo y número de cuenta
+* @author Ortiz Castañeda José Ramón - 318357115
+* @version 1.0 Mayo 2022
+* @since Estructuras de Datos 2022-1.
+*/
 public class HistogramPanel extends JPanel{
     private int histogramHeight = 200;
     private int barWidth = 50;
