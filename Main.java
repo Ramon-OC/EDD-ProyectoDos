@@ -54,7 +54,6 @@ public class Main {
                     alumnos.put(numCuenta, edad);
                     a.insertarNodo(numCuenta);
                 }
-                
 
                 /*
                 alumnos.put(1, 18);
@@ -71,7 +70,6 @@ public class Main {
                 alumnos.put(12, 24);
                 alumnos.put(13, 24);
                 alumnos.put(14, 24);*/
-
             }else if(opcion==2){ // Ver grafico de edades
                 int index = 0;
                 for(int i=18; i<=24; i++){

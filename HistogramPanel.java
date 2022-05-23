@@ -117,8 +117,7 @@ public class HistogramPanel extends JPanel{
             return height;
         }
 
-        public void paintIcon(Component c, Graphics g, int x, int y)
-        {
+        public void paintIcon(Component c, Graphics g, int x, int y){
             g.setColor(color);
             g.fillRect(x, y, width - shadow, height);
             g.setColor(Color.GRAY);
@@ -139,7 +138,7 @@ public class HistogramPanel extends JPanel{
 
         JFrame frame = new JFrame(nombre);
 
-       // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Corregir al momento de terminar
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Corregir al momento de terminar
         frame.add(panel);
         frame.setLocationByPlatform( true );
         frame.pack();
