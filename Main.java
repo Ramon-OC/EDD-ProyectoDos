@@ -16,6 +16,9 @@ public class Main {
         Frecuencia[] auxUno = new Frecuencia[7];
         Random rand = new Random();
 
+        Arbol a = new Arbol();
+
+
         while(salir){
             System.out.println("Escribe una opcion\n"
                             +"  1. Resgistrar alumno\n"
@@ -42,13 +45,14 @@ public class Main {
                 int edad = sc.nextInt();
                 alumnos.put(numCuenta, edad);*/
 
-                for(int i=0; i<=100; i++){
+                for(int i=0; i<=3; i++){
                     Integer numCuenta;
                     do{
                         numCuenta = rand.nextInt(300000000, 500000000);
                     }while(alumnos.containsKey(numCuenta));
                     int edad = rand.nextInt(18, 25);
                     alumnos.put(numCuenta, edad);
+                    a.insertarNodo(numCuenta);
                 }
                 
 
@@ -86,8 +90,7 @@ public class Main {
                 Arrays.sort(auxUno); 
                 HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades Ordenadas");
             }else if(opcion==4){
-                // Info del arbol
-                
+                System.out.println(a.toString());
             }else if(opcion==5){
                 salir = false;
             }
