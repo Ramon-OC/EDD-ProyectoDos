@@ -9,17 +9,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
-        int opcion=0;
+        int opcion = 0;
         boolean salir = true;
         /** Se almacenan los alumnos con un número de cuenta y su edad */
-        HashMap<Integer, Integer> alumnos = new HashMap<Integer, Integer>();;
-
-        Frecuencia[] auxUno = new Frecuencia[7];
-
+        HashMap<Integer, Integer> alumnos = new HashMap<Integer, Integer>();
+        /** Cantidad de alumnos registrados por edad */
+        Frecuencia[] auxUno = new Frecuencia[7]; 
         Random rand = new Random();
-
         Arbol a = new Arbol();
-
 
         while(salir){
             System.out.println("Escribe una opcion\n"

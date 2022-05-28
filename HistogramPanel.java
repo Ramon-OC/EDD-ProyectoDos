@@ -128,7 +128,7 @@ public class HistogramPanel extends JPanel{
     static void createAndShowGUI(Frecuencia[] aux, String nombre){
         HistogramPanel panel = new HistogramPanel();
         for(int i = 0; i < aux.length; i++){
-            if(aux[i].frecuencia !=0){
+            if(aux[i].getFricencia() !=0){
                 Color redo = new Color(65, 105, 225);
                 panel.addHistogramColumn(""+aux[i].getEdad(), aux[i].getFricencia(), redo);
             }
