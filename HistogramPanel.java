@@ -125,6 +125,8 @@ public class HistogramPanel extends JPanel{
         }
     }
 
+
+
     static void createAndShowGUI(Frecuencia[] aux, String nombre){
         HistogramPanel panel = new HistogramPanel();
         for(int i = 0; i < aux.length; i++){
@@ -144,5 +146,4 @@ public class HistogramPanel extends JPanel{
         frame.pack();
         frame.setVisible( true );
     }
-
 }

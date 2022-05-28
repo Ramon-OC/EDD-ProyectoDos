@@ -6,8 +6,9 @@ import java.util.*;
 * @version 1.0 Mayo 2022
 * @since Estructuras de Datos 2022-1.
 */
-public class Main {
+public class RegistroAlumnos{
 
+    /** Ordena de menor a mayor el arreglo de Frecuencias mediante Bubble Sort */
     static void bubbleSort(Frecuencia arr[], int n){                                       
         if(n == 1)
             return;
@@ -87,6 +88,9 @@ public class Main {
                     index++;
                 }
                 HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades");
+
+
+                
             }else if(opcion==3){ // Ver grafico de edades ordenado
 
                 int index = 0;
@@ -96,13 +100,11 @@ public class Main {
                     index++;
                 }
 
-
-                // Implementar sor
-
-                //Arrays.sort(auxUno); 
                 bubbleSort(auxUno, auxUno.length);
 
-                HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades Ordenadas");
+                Histograma histogramHeight = new Histograma();
+                histogramHeight.creaHistogramas(auxUno);
+                //HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades Ordenadas");
             }else if(opcion==4){
                 System.out.println(a.toString());
             }else if(opcion==5){
