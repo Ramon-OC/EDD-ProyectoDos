@@ -102,6 +102,8 @@ public class RegistroAlumnos{
 
                 bubbleSort(auxUno, auxUno.length);
 
+                System.out.println("El largo de frecuencia en main: "+auxUno.length);
+
                 Histograma histogramHeight = new Histograma();
                 histogramHeight.creaHistogramas(auxUno);
                 //HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades Ordenadas");
