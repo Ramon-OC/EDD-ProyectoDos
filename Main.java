@@ -7,6 +7,20 @@ import java.util.*;
 * @since Estructuras de Datos 2022-1.
 */
 public class Main {
+
+    static void bubbleSort(Frecuencia arr[], int n){                                       
+        if(n == 1)
+            return;
+        for(int i=0; i<n-1; i++){
+            if(arr[i].getFricencia() > arr[i+1].getFricencia()){ 
+                Frecuencia temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+            }
+        }
+        bubbleSort(arr, n-1);
+    }
+
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
         int opcion = 0;
@@ -36,7 +50,7 @@ public class Main {
                 int edad = sc.nextInt();
                 alumnos.put(numCuenta, edad);*/
 
-                
+                /*
                 Scanner sc = new Scanner(System.in);
                 System.out.print("Escriba un numero de cuenta: ");
                 int numCuenta;
@@ -46,10 +60,10 @@ public class Main {
                 System.out.print("Escriba la edad: ");
                 int edad = sc.nextInt();
                 alumnos.put(numCuenta, edad);
-                a.insertarNodo(numCuenta);
+                a.insertarNodo(numCuenta);*/
 
 
-                /*
+                
                 alumnos.put(1, 18);
                 alumnos.put(2, 18);
                 alumnos.put(3, 19);
@@ -63,7 +77,7 @@ public class Main {
                 alumnos.put(11, 23);
                 alumnos.put(12, 24);
                 alumnos.put(13, 24);
-                alumnos.put(14, 24);*/
+                alumnos.put(14, 24);
 
             }else if(opcion==2){ // Ver grafico de edades
                 int index = 0;
@@ -74,6 +88,7 @@ public class Main {
                 }
                 HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades");
             }else if(opcion==3){ // Ver grafico de edades ordenado
+
                 int index = 0;
                 for(int i=18; i<=24; i++){
                     int occurrences = Collections.frequency(alumnos.values(), i);
@@ -81,8 +96,11 @@ public class Main {
                     index++;
                 }
 
-                // Implementar sort
-                Arrays.sort(auxUno); 
+
+                // Implementar sor
+
+                //Arrays.sort(auxUno); 
+                bubbleSort(auxUno, auxUno.length);
 
                 HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades Ordenadas");
             }else if(opcion==4){
