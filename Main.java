@@ -13,7 +13,9 @@ public class Main {
         boolean salir = true;
         /** Se almacenan los alumnos con un número de cuenta y su edad */
         HashMap<Integer, Integer> alumnos = new HashMap<Integer, Integer>();;
+
         Frecuencia[] auxUno = new Frecuencia[7];
+
         Random rand = new Random();
 
         Arbol a = new Arbol();
@@ -21,7 +23,7 @@ public class Main {
 
         while(salir){
             System.out.println("Escribe una opcion\n"
-                            +"  1. Resgistrar alumno\n"
+                            +"  1. Registrar alumno\n"
                             +"  2. Ver grafico de edades\n"
                             +"  3. Ver grafico de edades ordenado\n"
                             +"  4. Ver arbol de inserciones\n"
@@ -37,23 +39,18 @@ public class Main {
                 int edad = sc.nextInt();
                 alumnos.put(numCuenta, edad);*/
 
-                /*
+                
                 Scanner sc = new Scanner(System.in);
                 System.out.print("Escriba un numero de cuenta: ");
-                int numCuenta = sc.nextInt();
+                int numCuenta;
+                do{
+                    numCuenta = sc.nextInt();
+                }while(alumnos.containsKey(numCuenta) && numCuenta>=300000000 && numCuenta<=500000000);
                 System.out.print("Escriba la edad: ");
                 int edad = sc.nextInt();
-                alumnos.put(numCuenta, edad);*/
+                alumnos.put(numCuenta, edad);
+                a.insertarNodo(numCuenta);
 
-                for(int i=0; i<=3; i++){
-                    Integer numCuenta;
-                    do{
-                        numCuenta = rand.nextInt(300000000, 500000000);
-                    }while(alumnos.containsKey(numCuenta));
-                    int edad = rand.nextInt(18, 25);
-                    alumnos.put(numCuenta, edad);
-                    a.insertarNodo(numCuenta);
-                }
 
                 /*
                 alumnos.put(1, 18);
@@ -70,6 +67,7 @@ public class Main {
                 alumnos.put(12, 24);
                 alumnos.put(13, 24);
                 alumnos.put(14, 24);*/
+
             }else if(opcion==2){ // Ver grafico de edades
                 int index = 0;
                 for(int i=18; i<=24; i++){
@@ -85,7 +83,10 @@ public class Main {
                     auxUno[index] = new Frecuencia(i,occurrences);
                     index++;
                 }
+
+                // Implementar sort
                 Arrays.sort(auxUno); 
+
                 HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades Ordenadas");
             }else if(opcion==4){
                 System.out.println(a.toString());
