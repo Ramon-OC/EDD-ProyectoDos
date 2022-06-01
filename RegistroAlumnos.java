@@ -1,11 +1,9 @@
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Random;
-import java.util.Scanner;
-
+import javax.swing.*;
 /**
 * Clase principal del programa, se ejecuta el menú de registro.
-* @author // Inserta tu nombre completo y número de cuenta
+* @author Chávez Zamora Mauro Emiliano - 111001079
 * @author Ortiz Castañeda José Ramón - 318357115
 * @version 1.0 Mayo 2022
 * @since Estructuras de Datos 2022-1.
@@ -27,49 +25,55 @@ public class RegistroAlumnos{
     }
 
     public static void main(String[] args){
-        Scanner entrada = new Scanner(System.in);
-        int opcion = 0;
-        boolean salir = true;
+
+        JFrame frame = new JFrame();
         /** Se almacenan los alumnos con un número de cuenta y su edad */
         HashMap<Integer, Integer> alumnos = new HashMap<Integer, Integer>();
         /** Cantidad de alumnos registrados por edad */
-        Frecuencia[] auxUno = new Frecuencia[7]; 
-        Random rand = new Random();
+        Frecuencia[] auxUno = new Frecuencia[7];
         Arbol a = new Arbol();
+        String[] opciones = new String[5];
+        int opcionAElegir=1; 
 
-        while(salir){
-            System.out.println("Escribe una opcion\n"
+        int n=0;
+        while(opcionAElegir<=5) {
+            opciones[n] = Integer.toString(opcionAElegir); 
+            n++;
+            opcionAElegir++;
+        }
+
+        while(true){
+            String seleccion = (String)JOptionPane.showInputDialog(null, "Escribe una opcion\n"
                             +"  1. Registrar alumno\n"
                             +"  2. Ver grafico de edades\n"
                             +"  3. Ver grafico de edades ordenado\n"
                             +"  4. Ver arbol de inserciones\n"
-                            +"  5. Salir");
-            opcion = entrada.nextInt();
+                            +"  5. Salir", "Menú", JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+            int opcion = Integer.parseInt(seleccion);
             if(opcion==1) {
-                // Registro de alumno desde terminal
-
-                /*
+                
                 try{
                     
-                    Scanner sc = new Scanner(System.in);
-                    System.out.print("Escriba un numero de cuenta: ");
-                    int numCuenta = sc.nextInt();;
+                    String numCuentaString = JOptionPane.showInputDialog(frame, "Escriba un número de cuenta:");
+                    int numCuenta = Integer.parseInt(numCuentaString);
                     while((alumnos.containsKey(numCuenta)) || (numCuenta<100000000 || 500000000<numCuenta)){
-                        System.out.println("Ese número de cuenta no es válido o ya está registrado. Trata de nuevo.");
-                        numCuenta = sc.nextInt();
+                        numCuentaString = JOptionPane.showInputDialog(frame, "Ese número de cuenta no es válido o ya está registrado. Trata de nuevo.");
+                        numCuenta = Integer.parseInt(numCuentaString);
                     }
-                    System.out.print("Escriba la edad: ");
-                    int edad = sc.nextInt();
+
+                    String edadString = (String)JOptionPane.showInputDialog(frame, "Escriba la edad:");
+                    int edad = Integer.parseInt(edadString);
                     while(edad<18 || 25<edad){
-                        System.out.println("Esa edad está fuera de rango. Trata de nuevo.");
-                        edad = sc.nextInt();
+                        edadString = (String)JOptionPane.showInputDialog(frame, "Esa edad está fuera de rango. Trata de nuevo.");
+                        edad = Integer.parseInt(edadString);
                     }
+
                     alumnos.put(numCuenta, edad);
                     a.insertarNodo(numCuenta);
 
                 }catch(Exception e){
-                    System.out.println("¡Lo siento! Sólo puedes poner carácters numéricos, no es posible poner cadenas de texto.");
-                }*/
+                    JOptionPane.showMessageDialog(frame, "¡Lo siento! Sólo puedes poner caracteres numéricos, no es posible poner cadenas de texto.");
+                }
                 
                 alumnos.put(1, 18);
                 alumnos.put(2, 18);
@@ -85,12 +89,12 @@ public class RegistroAlumnos{
                 alumnos.put(12, 24);
                 alumnos.put(13, 24);
                 alumnos.put(14, 24);
-                
+
             }else if(opcion==2){ // Ver grafico de edades
                 Frecuencia[] auxEdades = new Frecuencia[7]; 
 
                 if(alumnos.isEmpty()){
-                    System.out.println("\n¡El registro de alumnos está vacío! No se puede generar el histograma.\n");
+                    JOptionPane.showMessageDialog(frame, "¡El registro de alumnos está vacío! No se puede generar el histograma.");
                     continue;
                 }
 
@@ -104,14 +108,14 @@ public class RegistroAlumnos{
                     Histograma histogramHeight = new Histograma();
                     histogramHeight.creaHistogramas(auxEdades,"Edades Registradas");
                 }catch(Exception e){
-                    System.out.println("Hubo un erro creando el histograma, revise que haya al menos 1 alumno registrado. Saliendo del programa.");
+                    JOptionPane.showMessageDialog(frame, "Hubo un error creando el histograma, revise que haya al menos 1 alumno registrado.");
                 }
 
                 
             }else if(opcion==3){ // Ver grafico de edades ordenado
 
                 if(alumnos.isEmpty()){
-                    System.out.println("\n¡El registro de alumnos está vacío! No se puede generar el histograma.\n");
+                    JOptionPane.showMessageDialog(frame, "¡El registro de alumnos está vacío! No se puede generar el histograma.");
                     continue;
                 }
 
@@ -127,15 +131,20 @@ public class RegistroAlumnos{
                     Histograma histogramHeight = new Histograma();
                     histogramHeight.creaHistogramas(auxUno,"Edades Ordenadas por Frecuencias");
                 }catch(Exception e){
-                    System.out.println("Hubo un error creando el histograma, revise que haya al menos 1 alumno registrado. Saliendo del programa.");
+                    JOptionPane.showMessageDialog(frame, "Hubo un error creando el histograma, revise que haya al menos 1 alumno registrado.");
                 }
 
             }else if(opcion==4){
-                System.out.println(a.toString());
+                try{
+                    System.out.println(a.toString());
+                    JOptionPane.showMessageDialog(frame, a.toString());
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(frame, "Hubo un error creando el árbol de inserciones, revise que haya al menos 1 alumno registrado.");
+                }
             }else if(opcion==5){
-                salir = false;
+                break;
             }else{
-                System.out.println("\nEsa opción no está diponible, por favor selecciona una opción válida.\n");
+                JOptionPane.showMessageDialog(frame, "Esa opción no está diponible, por favor selecciona una opción válida.");
             }
         }
     }
