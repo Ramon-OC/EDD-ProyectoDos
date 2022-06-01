@@ -83,7 +83,8 @@ public class RegistroAlumnos{
                 alumnos.put(14, 24);
 
             }else if(opcion==2){ // Ver grafico de edades
-                
+                Frecuencia[] auxEdades = new Frecuencia[7]; 
+
                 if(alumnos.isEmpty()){
                     System.out.println("\n¡El registro de alumnos está vacío! No se puede generar el histograma.\n");
                     continue;
@@ -93,14 +94,14 @@ public class RegistroAlumnos{
                     int index = 0;
                     for(int i=18; i<=24; i++){
                         int occurrences = Collections.frequency(alumnos.values(), i);
-                        auxUno[index] = new Frecuencia(i,occurrences);
+                        auxEdades[index] = new Frecuencia(i,occurrences);
                         index++;
                     }
-                    HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades");
+                    Histograma histogramHeight = new Histograma();
+                    histogramHeight.creaHistogramas(auxEdades,"Edades Registradas");
                 }catch(Exception e){
                     System.out.println("Hubo un erro creando el histograma, revise que haya al menos 1 alumno registrado. Saliendo del programa.");
                 }
-
 
                 
             }else if(opcion==3){ // Ver grafico de edades ordenado
@@ -117,11 +118,10 @@ public class RegistroAlumnos{
                         auxUno[index] = new Frecuencia(i,occurrences);
                         index++;
                     }
-
                     bubbleSort(auxUno, auxUno.length);
-                    System.out.println("El largo de frecuencia en main: "+auxUno.length);
+                    //System.out.println("El largo de frecuencia en main: "+auxUno.length);
                     Histograma histogramHeight = new Histograma();
-                    histogramHeight.creaHistogramas(auxUno,"Edades Ordenadas");
+                    histogramHeight.creaHistogramas(auxUno,"Edades Ordenadas por Frecuencias");
                 }catch(Exception e){
                     System.out.println("Hubo un error creando el histograma, revise que haya al menos 1 alumno registrado. Saliendo del programa.");
                 }

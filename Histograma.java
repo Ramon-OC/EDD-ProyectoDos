@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import java.awt.Color;
@@ -45,24 +46,22 @@ public class Histograma extends JPanel{
 
             g.drawRect(ancho,650-height,90,height);
             g.fillRect(ancho,650-height,90,height);
+            g.drawString(frecuencia[x].getFricencia()+"",ancho+40,650-height-5);
+
+            g.setColor(coloresGei[6]);
+            g.drawString(frecuencia[x].getEdad()+"",ancho+40,665);
+
             ancho+=100;
         }
+
     }
 
-    /*
-    public static void main(String[] args){
-        JFrame ventana = new JFrame( "Formas Básicas");
-        Histograma objeto = new Histograma();
-        ventana.add(objeto);
-        ventana.setSize(710,700);
-        ventana.setLocationRelativeTo(null);
-        ventana.setVisible(true);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }*/
-
     public void creaHistogramas(Frecuencia[] frecuencia, String nombre){
+        Frecuencia[] auxMayor = frecuencia.clone();
         Histograma.frecuencia = frecuencia;
-        Histograma.mayor = getLargest(Histograma.frecuencia,Histograma.frecuencia.length);
+        Histograma.mayor = getLargest(auxMayor,Histograma.frecuencia.length);
+        
+
         JFrame ventana = new JFrame(nombre);
         Histograma objeto = new Histograma();
         ventana.add(objeto);
@@ -72,8 +71,5 @@ public class Histograma extends JPanel{
         ventana.setVisible(true);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
-
-
 
 }
