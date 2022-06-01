@@ -44,6 +44,7 @@ public class RegistroAlumnos{
             if(opcion==1) {
                 // Registro de alumno desde terminal
 
+                /*
                 try{
                     
                     Scanner sc = new Scanner(System.in);
@@ -64,9 +65,9 @@ public class RegistroAlumnos{
 
                 }catch(Exception e){
                     System.out.println("¡Lo siento! Sólo puedes poner carácters numéricos, no es posible poner cadenas de texto.");
-                }
+                }*/
                 
-                /*alumnos.put(1, 18);
+                alumnos.put(1, 18);
                 alumnos.put(2, 18);
                 alumnos.put(3, 19);
                 alumnos.put(4, 20);
@@ -79,7 +80,7 @@ public class RegistroAlumnos{
                 alumnos.put(11, 23);
                 alumnos.put(12, 24);
                 alumnos.put(13, 24);
-                alumnos.put(14, 24);*/
+                alumnos.put(14, 24);
 
             }else if(opcion==2){ // Ver grafico de edades
                 
@@ -118,12 +119,9 @@ public class RegistroAlumnos{
                     }
 
                     bubbleSort(auxUno, auxUno.length);
-
                     System.out.println("El largo de frecuencia en main: "+auxUno.length);
-
                     Histograma histogramHeight = new Histograma();
-                    histogramHeight.creaHistogramas(auxUno);
-                    //HistogramPanel.createAndShowGUI(auxUno, "Grafico de Edades Ordenadas");
+                    histogramHeight.creaHistogramas(auxUno,"Edades Ordenadas");
                 }catch(Exception e){
                     System.out.println("Hubo un error creando el histograma, revise que haya al menos 1 alumno registrado. Saliendo del programa.");
                 }
