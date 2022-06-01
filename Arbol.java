@@ -3,7 +3,7 @@ import java.util.LinkedList;
 
 /**
 * Clase que simula el comportamiento de un nodo de un arbol
-* @author
+* @author // Inserta tu nombre completo y número de cuenta
 * @author Ortiz Castañeda José Ramón - 318357115
 * @version 1.0 Mayo 2022
 * @since Estructuras de Datos 2022-2
@@ -61,7 +61,6 @@ class NodoArbol{
 
 /** Clase que simula el comportamiento de un árbol */
 public class Arbol {
-
     NodoArbol raiz;
     /** Método constructor, inicializa la raiz en null */
     public Arbol(){
@@ -81,8 +80,7 @@ public class Arbol {
     }
 
     /** 
-     * 
-     * 
+     * Imprimir el árbol por niveles, inserta una flecha cuando hay cambio
      * @return una cadena con la información de los niveles
     */
     public String toString(){
@@ -90,33 +88,27 @@ public class Arbol {
         Queue<NodoArbol> queue = new LinkedList<NodoArbol>();
         raiz.setNivel(nivel); // El nivel por defecto de la raiz será cero
         queue.add(raiz);
-
         String a = "";
         int nivelTemporal = 0;
-
         while (!queue.isEmpty()){
             NodoArbol tempNodo = queue.poll();
             int auxNivel = tempNodo.getNivel();
-            
             if(nivelTemporal!=auxNivel){
                 a+=" -> "; // poner fecha
                 nivelTemporal=nivelTemporal+1;
             }
-
             // Agrgar los especios
             a+=tempNodo.datos+" ";
-
             if (tempNodo.nodoIzq != null) { // izquierdo
                 tempNodo.nodoIzq.setNivel(auxNivel+1);
                 queue.add(tempNodo.nodoIzq);
             }
-
             if (tempNodo.nodoDer != null) { // Derecho mientras el nodo no sea null
                 tempNodo.nodoDer.setNivel(auxNivel+1);
                 queue.add(tempNodo.nodoDer);
             }
         }
-    return a;
+        return a;
     }
 
 }

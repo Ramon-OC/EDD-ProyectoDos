@@ -1,4 +1,8 @@
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.Scanner;
+
 /**
 * Clase principal del programa, se ejecuta el menú de registro.
 * @author // Inserta tu nombre completo y número de cuenta
@@ -81,7 +85,7 @@ public class RegistroAlumnos{
                 alumnos.put(12, 24);
                 alumnos.put(13, 24);
                 alumnos.put(14, 24);
-
+                
             }else if(opcion==2){ // Ver grafico de edades
                 Frecuencia[] auxEdades = new Frecuencia[7]; 
 
