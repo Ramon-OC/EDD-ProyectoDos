@@ -5,7 +5,7 @@ import java.awt.Graphics;
 /**
 * Clase auxiliar para crar histogramas de frecuencias, muetsra la cantidad registrada en cada barra
 * y su edad en la base de la gráfica.
-* @author // Inserta tu nombre completo y número de cuenta
+* @author Chávez Zamora Mauro Emiliano - 111001079
 * @author Ortiz Castañeda José Ramón - 318357115
 * @version 1.0 Mayo 2022
 * @since Estructuras de Datos 2022-1.
