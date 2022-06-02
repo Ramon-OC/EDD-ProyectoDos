@@ -10,6 +10,10 @@ import javax.swing.*;
 */
 public class RegistroAlumnos{
 
+
+    static ImageIcon icon = new ImageIcon("src/registro.png");
+
+
     /** Ordena de menor a mayor el arreglo de Frecuencias mediante Bubble Sort */
     static void bubbleSort(Frecuencia arr[], int n){                                       
         if(n == 1)
@@ -49,7 +53,7 @@ public class RegistroAlumnos{
                             +"  2. Ver gráfico de edades\n"
                             +"  3. Ver gráfico de edades ordenado\n"
                             +"  4. Ver árbol de inserciones\n"
-                            +"  5. Salir", "Menú", JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+                            +"  5. Salir", "Menú", JOptionPane.QUESTION_MESSAGE, icon, opciones, opciones[0]);
             try{
                 opcion = Integer.parseInt(seleccion);
             }catch(Exception e){
@@ -147,6 +151,7 @@ public class RegistroAlumnos{
                     JOptionPane.showMessageDialog(frame, "Hubo un error creando el árbol de inserciones, revise que haya al menos 1 alumno registrado.");
                 }
             }else if(opcion==5){
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 break;
             }else{
                 JOptionPane.showMessageDialog(frame, "Esa opción no está diponible, por favor selecciona una opción válida.");
@@ -154,6 +159,9 @@ public class RegistroAlumnos{
         }
     }
 }
+
+
+
 
 
 
