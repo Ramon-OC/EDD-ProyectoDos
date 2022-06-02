@@ -33,7 +33,8 @@ public class RegistroAlumnos{
         Frecuencia[] auxUno = new Frecuencia[7];
         Arbol a = new Arbol();
         String[] opciones = new String[5];
-        int opcionAElegir=1; 
+        int opcionAElegir=1;
+        int opcion;
 
         int n=0;
         while(opcionAElegir<=5) {
@@ -49,7 +50,11 @@ public class RegistroAlumnos{
                             +"  3. Ver gráfico de edades ordenado\n"
                             +"  4. Ver árbol de inserciones\n"
                             +"  5. Salir", "Menú", JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
-            int opcion = Integer.parseInt(seleccion);
+            try{
+                opcion = Integer.parseInt(seleccion);
+            }catch(Exception e){
+                opcion = 5;
+            }
             if(opcion==1) {
                 
                 try{
