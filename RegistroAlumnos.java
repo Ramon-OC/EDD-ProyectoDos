@@ -43,11 +43,11 @@ public class RegistroAlumnos{
         }
 
         while(true){
-            String seleccion = (String)JOptionPane.showInputDialog(null, "Escribe una opcion\n"
+            String seleccion = (String)JOptionPane.showInputDialog(null, "Selecciona una opción\n"
                             +"  1. Registrar alumno\n"
-                            +"  2. Ver grafico de edades\n"
-                            +"  3. Ver grafico de edades ordenado\n"
-                            +"  4. Ver arbol de inserciones\n"
+                            +"  2. Ver gráfico de edades\n"
+                            +"  3. Ver gráfico de edades ordenado\n"
+                            +"  4. Ver árbol de inserciones\n"
                             +"  5. Salir", "Menú", JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
             int opcion = Integer.parseInt(seleccion);
             if(opcion==1) {
@@ -75,7 +75,7 @@ public class RegistroAlumnos{
                     JOptionPane.showMessageDialog(frame, "¡Lo siento! Sólo puedes poner caracteres numéricos, no es posible poner cadenas de texto.");
                 }
                 
-                alumnos.put(1, 18);
+                /*alumnos.put(1, 18);
                 alumnos.put(2, 18);
                 alumnos.put(3, 19);
                 alumnos.put(4, 20);
@@ -88,7 +88,7 @@ public class RegistroAlumnos{
                 alumnos.put(11, 23);
                 alumnos.put(12, 24);
                 alumnos.put(13, 24);
-                alumnos.put(14, 24);
+                alumnos.put(14, 24);*/
 
             }else if(opcion==2){ // Ver grafico de edades
                 Frecuencia[] auxEdades = new Frecuencia[7]; 
